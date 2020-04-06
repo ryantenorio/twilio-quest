@@ -15,7 +15,7 @@ type Response struct {
 func hello(c *gin.Context) {
 	// return back a say tag
 	response := Response{
-		Says: []Say{"Hello, World!"},
+		Says: []Say{"Hello, World!", "Welcome to my Twilio App!"},
 	}
 	c.XML(200, response)
 }
