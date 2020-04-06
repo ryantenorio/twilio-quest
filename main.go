@@ -1,6 +1,8 @@
 package main
 
 import (
+	"os"
+
 	"github.com/gin-gonic/gin"
 	"github.com/ryantenorio/twilio-quest/twilio"
 )
@@ -16,8 +18,8 @@ func hello(c *gin.Context) {
 func sendSMS(c *gin.Context) {
 	client := twilio.Client()
 	message := twilio.SMSMessage{
-		To:   "+14805448206",
-		From: "+17155022669",
+		To:   os.Getenv("TO_TEST"),
+		From: os.Getenv("TWILIO_NUMBER"),
 		Body: "Test SMS",
 	}
 	response, err := client.SendSMS(message)
